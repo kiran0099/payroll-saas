@@ -5,6 +5,8 @@ public class Attendance
     public int Id { get; set; }
     public int EmployeeId { get; set; }
     public DateOnly Date { get; set; }
+    public int Month { get; set; }
+    public int Year { get; set; }
     public string Status { get; set; } = "Present"; // Present | Absent | HalfDay
     public TimeOnly? CheckIn { get; set; }
     public TimeOnly? CheckOut { get; set; }

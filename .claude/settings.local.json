@@ -38,7 +38,17 @@
       "Bash(cmd //c \"taskkill /PID 18708 /F\" 2>&1)",
       "Bash(sleep 2 && cd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && dotnet build 2>&1 | tail -4)",
       "Bash(gh auth:*)",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "Bash(cmd //c \"taskkill /IM PayrollAPI.exe /F\" 2>&1; sleep 2\ncd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && dotnet build 2>&1 | grep -E \"error|warning|succeeded|failed\")",
+      "Bash(cd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && rm -f Migrations/*.cs && dotnet ef migrations add InitialCreate 2>&1)",
+      "Bash(PGPASSWORD=\"MrBlack@0088\" \"C:/Program Files/PostgreSQL/16/bin/psql.exe\" -U postgres -c \"DROP DATABASE IF EXISTS payrolldb;\" 2>&1 && cd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && dotnet ef database update 2>&1 | grep -E \"info:|Done|error\")",
+      "Bash(PGPASSWORD=\"MrBlack@0088\" \"C:/Program Files/PostgreSQL/16/bin/psql.exe\" -U postgres -c \"SELECT pg_terminate_backend\\(pid\\) FROM pg_stat_activity WHERE datname='payrolldb' AND pid <> pg_backend_pid\\(\\);\" 2>&1 && PGPASSWORD=\"MrBlack@0088\" \"C:/Program Files/PostgreSQL/16/bin/psql.exe\" -U postgres -c \"DROP DATABASE payrolldb;\" 2>&1)",
+      "Bash(cd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && dotnet ef database update 2>&1 | grep -E \"info:|Done|Error|CREATE\")",
+      "Bash(sleep 5 && curl -s http://localhost:5120/swagger/v1/swagger.json | head -3 2>&1)",
+      "Bash(cmd //c \"taskkill /IM PayrollAPI.exe /F\" 2>&1; sleep 2\ncd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && dotnet build 2>&1 | tail -5)",
+      "Bash(cmd //c \"taskkill /IM PayrollAPI.exe /F\" 2>&1; sleep 2 && cd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && dotnet build 2>&1 | tail -4)",
+      "Bash(sleep 5 && cd \"D:/New Folder/Important/payroll/backend/PayrollAPI\" && dotnet build 2>&1 | tail -4)",
+      "Bash(PGPASSWORD=\"MrBlack@0088\" \"C:/Program Files/PostgreSQL/16/bin/psql.exe\" -U postgres -d payrolldb \\\\\n  -c \"SELECT COUNT\\(*\\) as total_marked FROM \\\\\"Attendances\\\\\" WHERE \\\\\"EmployeeId\\\\\"=1 AND \\\\\"Month\\\\\"=4 AND \\\\\"Year\\\\\"=2026;\" 2>&1)"
     ]
   }
 }

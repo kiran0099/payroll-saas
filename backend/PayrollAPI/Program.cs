@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PayrollAPI.Data;
+using PayrollAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<AttendanceService>();
+builder.Services.AddScoped<PayrollService>();
 builder.Services.AddControllers();
 
 // Swagger with JWT support

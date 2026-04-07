@@ -45,6 +45,9 @@ namespace PayrollAPI.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Month")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Note")
                         .HasColumnType("text");
 
@@ -55,10 +58,15 @@ namespace PayrollAPI.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("Year")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EmployeeId", "Date")
                         .IsUnique();
+
+                    b.HasIndex("EmployeeId", "Month", "Year");
 
                     b.ToTable("Attendances");
                 });

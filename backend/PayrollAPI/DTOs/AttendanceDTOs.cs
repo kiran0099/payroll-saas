@@ -20,4 +20,12 @@ public record AttendanceResponse(
     string? Note
 );
 
-public record MonthlyAttendanceQuery(int EmployeeId, int Month, int Year);
+public record MonthlySummaryResponse(
+    int EmployeeId,
+    int Month,
+    int Year,
+    int PresentDays,
+    int AbsentDays,
+    int HalfDays,
+    List<AttendanceResponse> Records
+);

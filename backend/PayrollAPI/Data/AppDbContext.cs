@@ -40,6 +40,8 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
             // Prevent duplicate attendance for same employee+date
             e.HasIndex(a => new { a.EmployeeId, a.Date }).IsUnique();
+            // Fast monthly queries
+            e.HasIndex(a => new { a.EmployeeId, a.Month, a.Year });
         });
 
         // LeaveRequest → Employee
