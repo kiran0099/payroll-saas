@@ -1,0 +1,32 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.csproj.user
+appsettings.Development.json
+appsettings.Local.json
+
+# EF Migrations (keep the folder, ignore nothing — migrations are committed)
+
+# Node / Frontend
+node_modules/
+dist/
+.next/
+.nuxt/
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/settings.json
+*.swp
